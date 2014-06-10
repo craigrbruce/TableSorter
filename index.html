@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+</head>
+<body ng-app="demoApp">
+<div ng-controller="demoCtrl">
+    <div class="alert alert-info">
+        Click da columnz!
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <th>
+                <sorter sort-by="name" sort="getFoobars" column-title="Name"></sorter>
+            </th>
+            <th>
+                <sorter sort-by="email" sort="getFoobars" column-title="Email"></sorter>
+            </th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Bob</td><td>Mortimer</td>
+            </tr>
+            <tr>
+                <td>Vic</td><td>Reeves</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <div>
+        <ul>
+            <li ng-repeat="a in sortActions">
+                {{a.number}}) {{a.message}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+<script src="app.js"></script>
+<script src="sorter.js"></script>
+</body>
+</html>
