@@ -31,7 +31,9 @@ angular.module('columnSorter', [])
                 scope: {
                     sort: "=",
                     sortBy: "@",
-                    columnTitle: "@"
+                    columnTitle: "@",
+                    upIcon: "@",
+                    downIcon: "@"
                 },
                 link: function ($scope) {
                     $scope.orderBy = "DESC";
@@ -48,8 +50,8 @@ angular.module('columnSorter', [])
                         toggleOrderBy();
                     };
 
-                    $scope.orderByIcon = function () {//using font awesome .. or choose your own.
-                        return $scope.orderBy === "ASC" ? "fa fa-chevron-up" : "fa fa-chevron-down";
+                    $scope.orderByIcon = function () {
+                        return $scope.orderBy === "ASC" ? $scope.upIcon : $scope.downIcon;
                     };
 
                     mediator.subscribeEvent(mediator.SORT_SELECTED, $scope, function (currentSort) {
